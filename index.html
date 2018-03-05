@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<style>
+	body, p, h1, h2, h3, h4, div {font-family: 'Roboto Condensed', sans-serif;}
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+	setInterval(function() {
+        window.location.reload();
+    }, 300000); 
+</script>
+</head>
+<body>
+  <script>
+    function playBSS(){
+      var audio = document.getElementById("bss");
+      if(audio.paused) {
+        audio.play();
+          } else{
+          audio.pause();
+          }
+      }
+     function play99P(){
+      var audio = document.getElementById("99p");
+        if(audio.paused) {
+          audio.play();
+          } else{
+          audio.pause();
+          }
+      	}
+     function playPC(){
+      var audio = document.getElementById("pc");
+        if(audio.paused) {
+          audio.play();
+          } else{
+          audio.pause();
+          }
+      	}
+    document.addEventListener('play', function(e){
+      var audios = document.getElementsByTagName('audio');
+      for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+       }
+     }, true);
+   </script>
+	<div class="container-fluid">
+		<div class="header">
+			<h1>Musselman Library Fair Use Week 2018</h1>
+			<h2>Sampling and Fair Use</h2>
+			<hr>
+		</div>
+		<div class="row">
+			<div class="col">
+				<h3>Bitter Sweet Symphony</h3>
+				<h4>(1997)</h4>
+				<img src="files/bitter-sweet-symphony.jpg" value="playBSS" onclick="playBSS()" style="width:100%;"/>
+				<strong><p style="font-size: .95em;">The Andrew Oldham Orchestra + The Verve</p></strong>
+			</div>
+
+			<div class="col">
+				<h3>99 Problems</h3>
+				<h4>(2004)</h4>
+				<img src="files/99-problems.jpg" value="play99P" onclick="play99P()" style="width:100%;"/>
+				<strong><p style="font-size: .95em;">Jay-Z + The Beatles</p></strong>
+			</div>
+			<div class="col">
+				<h3>Pound Cake</h3>
+				<h4>(2017)</h4>
+				<img src="files/pound-cake.jpg" value="playPC" onclick="playPC()" style="width:100%;"/>
+				<strong><p style="font-size: .95em;">Jimmy Smith + Drake</p></strong>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<audio id="bss" preload="auto" controls controlsList="nodownload" style="width:100%;">
+					<source src="files/bss.mp3" type="audio/mpeg">
+				</audio>
+			</div>
+			<div class="col">
+				<audio id="99p" preload="auto" controls controlsList="nodownload" style="width:100%;">
+					<source src="files/99p.mp3" type="audio/mpeg">
+				</audio>
+				<p>Warning: Explicit content</p>
+			</div>
+			<div class="col">
+				<audio id="pc" preload="auto" controls controlsList="nodownload" style="width:100%;">
+					<source src="files/pc.mp3" type="audio/mpeg">
+				</audio>
+				<p>Warning: Explicit content</p>
+			</div>
+		</div>
+		<hr>
+		<div class="footer">
+			<Center><button class="btn btn-primary" onclick="reloadPage()">Restart All Tracks from the Beginning</button></Center>
+		</div>
+	</div>
+	<script>
+    function reloadPage() {
+      location.reload();
+    }
+  </script>
+</body>
